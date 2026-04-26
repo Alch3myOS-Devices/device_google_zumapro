@@ -5,18 +5,16 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Build Duplicates
+BUILD_BROKEN_DUP_RULES := true
+
 include build/make/target/board/BoardConfigMainlineCommon.mk
 include build/make/target/board/BoardConfigPixelCommon.mk
 
-# Include settings for 16k page size kernel if enabled.
-ifneq ($(wildcard $(TARGET_KERNEL_DIR)/16kb/),)
-include device/google/zumapro/BoardConfig-16k-common.mk
-endif
-
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-2a
+TARGET_ARCH_VARIANT := armv9-a
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_VARIANT := cortex-a55
+TARGET_CPU_VARIANT := cortex-a510
 
 BOARD_BOOTCONFIG += \
     androidboot.boot_devices=13200000.ufs
@@ -129,6 +127,25 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 11796480000
 PRODUCT_FS_COMPRESSION := 1
 BOARD_FLASH_BLOCK_SIZE := 4096
 
+ifneq ($(WITH_GMS),true)
+# system.img
+BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := -1
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 52428800
+TARGET_COPY_OUT_SYSTEM := system
+
+# product.img
+BOARD_PRODUCTIMAGE_EXTFS_INODE_COUNT := -1
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 1988938957
+TARGET_COPY_OUT_PRODUCT := product
+
+# system_ext.img
+BOARD_SYSTEM_EXTIMAGE_EXTFS_INODE_COUNT := -1
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 52428800
+TARGET_COPY_OUT_SYSTEM_EXT := system_ext
+else
 # system.img
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 
@@ -139,6 +156,7 @@ TARGET_COPY_OUT_PRODUCT := product
 # system_ext.img
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
+endif
 
 # vendor.img
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4

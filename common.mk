@@ -5,8 +5,11 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Disable Artifact Requirements
+DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
+
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnel_migration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnel_migration.xml
@@ -394,15 +397,7 @@ PRODUCT_PACKAGES += \
     EuiccSupportPixelOverlay \
     FrameworkResOverlayProductZumapro \
     FrameworkResOverlayVendorZumapro \
-    GlanceableHubConfigOverlay \
-    GlanceableHubSettingsConfigOverlay \
-    GlanceableHubSettingsConfigOverlay2022 \
-    GlanceableHubSysuiConfigOverlay \
-    GoogleConfigOverlay \
     GooglePermissionControllerSafetyCenterOverlay \
-    PixelConfigOverlay2019 \
-    PixelConfigOverlay2021 \
-    PixelConfigOverlayCommon \
     PixelConnectivityOverlay2024 \
     PixelDisplayServiceOverlayProductZumapro \
     PixelNfcOverlayCommon \
@@ -433,6 +428,7 @@ PRODUCT_PACKAGES += \
 
 # Properties
 TARGET_PRODUCT_PROP += device/google/zumapro/product.prop
+TARGET_SYSTEM_PROP += device/google/zumapro/system.prop
 TARGET_SYSTEM_EXT_PROP += device/google/zumapro/system_ext.prop
 TARGET_VENDOR_PROP += device/google/zumapro/vendor.prop
 
