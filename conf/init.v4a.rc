@@ -1,0 +1,6 @@
+on post-fs-data
+    # Create the base directory for ViPER4Android
+    mkdir /data/vendor/v4a 0770 audio audio
+
+    # Force the initial SELinux labels
+    restorecon_recursive /data/vendor/v4a

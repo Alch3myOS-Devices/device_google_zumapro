@@ -1,3 +1,6 @@
 binder_call(system_app, hal_wireless_charger)
 
 allow system_app hal_wireless_charger_service:service_manager find;
+
+allow system_app viper_vendor_data_file:dir create_dir_perms;
+allow system_app viper_vendor_data_file:file create_file_perms;

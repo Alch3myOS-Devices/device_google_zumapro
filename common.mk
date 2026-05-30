@@ -106,6 +106,9 @@ PRODUCT_COPY_FILES += \
 	device/google/zumapro/conf/init.efs.4k.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.efs.rc
 endif
 
+PRODUCT_COPY_FILES += \
+        device/google/zumapro/conf/init.v4a.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.v4a.rc
+
 # Recovery files
 PRODUCT_COPY_FILES += \
 	device/google/zumapro/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.zumapro.rc
@@ -351,6 +354,12 @@ PRODUCT_PACKAGES += \
 # Audio
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
+
+PRODUCT_COPY_FILES += \
+    device/google/zumapro/audio_effects_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects_config.xml
+
+PRODUCT_COPY_FILES += \
+    device/google/zumapro/audio_effects.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_effects.xml
 
 # Bluetooth
 PRODUCT_PACKAGES += \

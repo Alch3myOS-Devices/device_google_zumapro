@@ -112,3 +112,6 @@ vendor.wlan.firmware.version u:object_r:vendor_wifi_version:s0
 vendor.wlcservice.fwupdate.tx u:object_r:vendor_wlcservice_prop:s0 exact enum 0 1 2 3
 vendor.wlcservice.start u:object_r:vendor_wlcservice_prop:s0 exact bool
 vendor.wlcservice.test.authentication u:object_r:vendor_wlcservice_prop:s0 exact bool
+
+vendor.audio.viper.         u:object_r:vendor_audio_prop_restricted:s0
+vendor.audio.shm.           u:object_r:vendor_audio_prop_restricted:s0
