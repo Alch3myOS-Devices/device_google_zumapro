@@ -292,3 +292,5 @@ BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 20971520
 # Disable the system_other image to save 66MB and avoid partition checks on it.
 # system_other is mostly for pre-optimization cache and isn't needed for Alch3myOS.
 BOARD_BUILD_SYSTEM_OTHER_IMAGE := false
+
+BOARD_PREBUILT_VENDOR_BOOTIMAGE := $(wildcard device/google/OrangeFox/Fox.img)
