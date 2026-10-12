@@ -170,8 +170,9 @@ BOARD_GOOGLE_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     vendor \
     vendor_dlkm
 
-# Set error limit to BOARD_SUPER_PARTITON_SIZE - 500MB
-BOARD_SUPER_PARTITION_ERROR_LIMIT := 8006926336
+# Alch3myOS: allow the full dynamic partitions group size. GMS builds with
+# SettingsGoogle/SystemUIGoogle exceed Google's 500MB reserve but still fit.
+BOARD_SUPER_PARTITION_ERROR_LIMIT := 8527020032
 
 # Reserve space for gapps install
 -include vendor/alch3my/config/BoardConfigReservedSize.mk
